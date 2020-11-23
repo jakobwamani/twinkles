@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Twinkles</title>
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                            }
+        </style>
+    </head>
+    <body>
+           <h1>Pupils</h1>
+                <table style="width: auto;">
+                <tr>
+                    <th>Parentid</th>
+                    <th>Childid</th>
+                    <th>firstname</th>
+                    <th>middlename</th>
+                    <th>lastname</th>
+                    <th>classlevel</th>
+                    <th>age</th>
+                    
+                </tr>
+            {% if children %}
+                {% for child in children %}
+                <tr>
+                    <td>{{ child.parent}}</td>
+                    <td>{{ child.id}}</td>
+                    <td>{{ child.firstname }}</td>
+                    <td>{{ child.middlename }}</td>
+                    <td>{{ child.lastname }}</td>
+                    <td>{{ child.classlevel }}</td>
+                    <td>{{ child.age }}</td>
+                </tr>
+                {% endfor %}
+                </table>
+            {% else %}
+                <strong>No Children registered yet</strong>
+            {% endif %}
+       <hr/>
+       <div>
+        <a href="{% url 'index' %}">Home</a><br/>
+
+        <a href="/twinkle/about/">Leadership</a><br/>
+        <a href="/twinkle/parents/">Parents</a><br/>
+        <a href="/twinkle/children/">Children</a><br/>
+        <a href="/twinkle/register">Register</a><br/>
+        <a href="/twinkle/addpayments/">Payments</a>
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Twinkles</title>
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                            }
+        </style>
+    </head>
+    <body>
+           <p>Payments</p>
+           <h1>Add Payment</h1>
+           <form id="payment_form" method="POST" action="{% url 'add_payments' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h4>Put child id in child space</h4>
+                {{ payments_form_one.as_p }}
+                   <input type="submit" name="submit" value="submit"/> 
+           </form>
+          
+       </div>
+       <hr/>
+       <div>
+        <a href="{% url 'index' %}">Home</a><br/>
+        <a href="/twinkle/about/">Leadership</a><br/>
+        <a href="/twinkle/parents/">Parents</a><br/>
+        <a href="/twinkle/children/">Children</a><br/>
+        <a href="/twinkle/register">Register</a><br/>
+        <a href="/twinkle/addpayments/">Payments</a>
+
+    </div>
+    </body>
+</html>
