@@ -1,0 +1,25 @@
+{% extends 'twinkle/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Twinkle Registration
+{% endblock %}
+{% block body_block %}
+{% if registered %}
+            <strong>Thank you for registering </strong>
+        {% else %}
+            <strong>Register here</strong>
+            <h1>Registration</h1>
+            <div style="margin:0 auto;width:75%;text-align:center">
+            <form id="user_form" method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ parent_form.as_p }}
+                {{ children_form.as_p }}
+               
+
+                <input type="submit" name="submit" value="Register"/>
+            </form>
+        </div>
+        {% endif %}
+{% endblock %}

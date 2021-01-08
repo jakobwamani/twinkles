@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            &#127976 Twinkles-
+            
+                We grow ,We laugh ,We learn
+        </title>
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                            }
+        </style>
+    </head>
+    <body>
+        <div>
+           
+            <!-- templates/search_results.html -->
+            <h1>Look for kid's id</h1>
+            <form action="{% url 'view_payments' %}" method="get">
+                <input name="child" type="text" placeholder="child name in small letters...">
+                <input type="submit" name="submit" value="Search"/>
+            </form>
+            <table style="width: auto;">
+           
+            <ul>
+            {% for child in kid %}
+            <tr>
+                <th>Childid</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>Time of Study</th>
+            </tr>
+            <tr>
+                <td>{{ child.id}} </td>
+                <td>{{ child.firstname }}</td>
+                <td>{{ child.lastname }} </td>
+                <td>{{ child.time_of_study}}</td>
+            </tr>
+            {% endfor %}
+            </table>
+
+            <a href="/twinkle/payments/"><p style="font-size: medium;">&#128176AddPayments</p></a>
+            <a href="/twinkle/show_payment_history/"><p style="font-size: medium;">&#128176Show Payment History</p></a>
+            
+            </ul>
+            <hr/>
+          
+          
+            
+      
+        <div>
+            
+            <a href="{% url 'index' %}"><p style="font-size: medium;">&#127960Home</p></a><br/>
+            <a href="/twinkle/about/"><p style="font-size: medium;">&#128587Leadership</p></a><br/>
+            <a href="/twinkle/parents/"><p style="font-size: medium;">&#128107Parents</p></a><br/>
+            <a href="/twinkle/children/"><p style="font-size: medium;">&#128539Children</p></a><br/>
+            <a href="/twinkle/register/"><p style="font-size: medium;">&#128395Register</p></a><br/>
+            <a href="/twinkle/addpayments/"><p style="font-size: medium;">&#128176Payments</p></a>
+        </div>
+    </body>
+</html>

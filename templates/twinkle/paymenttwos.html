@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            Twinkles-
+            {% block title_block %}
+                We grow ,We laugh ,We learn
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <div>
+            {% block body_block %}
+            <div>
+                {% block body_block %}
+                <h1>Second payment</h1>
+                {% if second_installment %}
+                    <strong>The children paid the second installment</strong>
+                {% else %}
+                    <form id="first_payment" method="POST" action="{% url 'view_paymentone' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+    
+                    {{ paymenttwoform.as_p}}
+    
+                    <input type="submit" name="submit" value="Register" />
+                    </form>
+                {% endif %}
+                {% endblock %}
+            </div>
+            {% endblock %}
+        </div>
+        <hr/>
+        <div>
+            <a href="{% url 'index' %}">Home</a><br/>
+            <a href="/twinkle/about/">Leadership</a><br/>
+            <a href="/twinkle/parents/">Parents</a><br/>
+            <a href="/twinkle/children/">Children</a><br/>
+            <a href="/twinkle/register/">Register</a><br/>
+            <a href="/twinkle/payments/">Payments</a>
+        </div>
+    </body>
+</html>

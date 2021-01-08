@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+        <title>Twinkles</title>
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                            }
+        </style>
+    </head>
+    <body>
+           <h1>Parents</h1>
+                <table style="width: auto;">
+                <tr>
+                    <th>Parent id</th>
+                    <th>Father's_Firstname</th>
+                    <th>Father's_lastname</th>
+                    <th>father's_phoneOne</th>
+                    <th>father's_phoneTwo</th>
+                    <th>mother's_Firstname</th>
+                    <th>mother's_lastname</th>
+                    <th>mother's_phoneOne</th>
+                    <th>mother's_phoneTwo</th>
+                    <th>Address</th>
+                </tr>
+            {% if parents %}
+                {% for parent in parents %}
+                <tr>
+                    <td>{{ parent.id}}</td>
+                    <td>{{ parent.father_firstname}}</td>
+                    <td>{{ parent.father_lastname }}</td>
+                    <td>{{ parent.father_phonenumber_one }}</td>
+                    <td>{{ parent.father_phonenumber_two }}</td>
+                    <td>{{ parent.mother_firstname }}</td>
+                    <td>{{ parent.mother_lastname }}</td>
+                    <td>{{ parent.mother_phonenumber_one }}</td>
+                    <td>{{ parent.mother_phonenumber_two}}</td>
+                    <td>{{ parent.address }}</td>
+                </tr>
+            
+                    
+                {% endfor %}
+                </table>
+            {% else %}
+                <strong>No parents registered yet</strong>
+            {% endif %}
+       <hr/>
+       <div>
+        <a href="{% url 'index' %}">Home</a><br/>
+
+        <a href="/twinkle/about/">Leadership</a><br/>
+        <a href="/twinkle/parents/">Parents</a><br/>
+        <a href="/twinkle/children/">Children</a><br/>
+        <a href="/twinkle/register">Register</a><br/>
+        <a href="/twinkle/addpayments/">Payments</a>
+
+    </div>
+    </body>
+</html>

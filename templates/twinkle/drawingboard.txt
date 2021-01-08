@@ -1,0 +1,12 @@
+i want to be able to add payments of the of a specific pupil
+what will i need ?
+the childid,Hmow do i get some to input the childid
+But i already have the id why do i need to input again
+Where do i get it from ?
+children form itself
+the amount
+the date
+the year
+but its in three installments
+if an installment is available ,then display it
+

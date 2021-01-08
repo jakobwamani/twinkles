@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            &#127976 Twinkles-
+            {% block title_block %}
+                We grow ,We laugh ,We learn
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <div>
+            {% block body_block %}
+            {% endblock %}
+        </div>
+        <hr/>
+        <div>
+            
+            <a href="{% url 'index' %}"><p style="font-size: medium;">&#127960Home</p></a><br/>
+            <a href="/twinkle/about/"><p style="font-size: medium;">&#128587Leadership</p></a><br/>
+            <a href="/twinkle/parents/"><p style="font-size: medium;">&#128107Parents</p></a><br/>
+            <a href="/twinkle/children/"><p style="font-size: medium;">&#128539Children</p></a><br/>
+            <a href="/twinkle/register/"><p style="font-size: medium;">&#128395Register</p></a><br/>
+            <a href="/twinkle/addpayments/"><p style="font-size: medium;">&#128176Payments</p></a>
+        </div>
+    </body>
+</html>

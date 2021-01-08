@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            Twinkles-
+            
+                We grow ,We laugh ,We learn
+            
+        </title>
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Enter Child id</h1>
+            <form action="{% url 'show_payment_history' %}" method="get">
+                <input name="child" type="text" placeholder="Childid...">
+                <input type="submit" name="submit" value="Search"/>
+            </form>
+                {% for kid in skid %}
+                    <strong>kid.firstname</strong>
+                    <strong>kid.lastname</strong>
+                {% endfor%}
+            <table style="width: auto;">
+                <ul>
+                {% for pay in payment %}
+                <tr>
+                    <th>paymentid</th>
+                    <th>childid</th>
+                    <th>amount</th>
+                    <th>Date</th>
+                    <th>bank</th>
+                    <th>term</th>
+                    <th>year</th>
+                    <th>Installment</th>
+                </tr>
+                <tr>
+                    <td>{{ pay.id}} </td>
+                    <td>{{ pay.child}} </td>
+                    <td>{{ pay.amount}} </td>
+                    <td>{{ pay.time}} </td>
+                    <td>{{ pay.bank}} </td>
+                    <td>{{ pay.term}} </td>
+                    <td>{{ pay.year}} </td>
+                    <td>{{ pay.installment}} </td>
+
+                    
+                </tr>
+                {% endfor %}
+                </table>
+    
+                
+                </ul>
+        </div>
+        <hr/>
+        <div>
+            <a href="{% url 'index' %}">Home</a><br/>
+            <a href="/twinkle/about/">Leadership</a><br/>
+            <a href="/twinkle/parents/">Parents</a><br/>
+            <a href="/twinkle/children/">Children</a><br/>
+            <a href="/twinkle/register/">Register</a><br/>
+            <a href="/twinkle/payments/">Payments</a>
+        </div>
+    </body>
+</html>
